@@ -38,15 +38,13 @@ public class Main {
     }
 
     private static String obterEntrada(String mensagem, String tipoValidacao) throws Exception {
-        while (true) {
-            String entrada = JOptionPane.showInputDialog(null, mensagem, JOptionPane.QUESTION_MESSAGE);
-            try {
-                Verificacoes.validar(entrada, tipoValidacao);
-                return entrada;
-            } catch (IllegalArgumentException e) {
-                JOptionPane.showMessageDialog(null, e.getMessage());
-            }
+        String entrada = JOptionPane.showInputDialog(null, mensagem, JOptionPane.QUESTION_MESSAGE);
+        try {
+            Verificacoes.validar(entrada, tipoValidacao);
+        } catch (IllegalArgumentException e) {
+            JOptionPane.showMessageDialog(null, e.getMessage());
         }
+        return entrada;
     }
 
     private static Date obterData(String mensagem) throws Exception {
